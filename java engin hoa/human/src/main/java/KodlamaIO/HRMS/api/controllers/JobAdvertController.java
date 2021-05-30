@@ -42,26 +42,25 @@ public class JobAdvertController {
         return this.jobAdvertService.findByIsActiveTrueOrderByPublishDesc();
     }
     
-    /*
-     * @GetMapping("findByIsActiveAndEmployerCompany")
-    public DataResult<List<JobAdvert>> findByIsActiveAndEmployerCompany(@RequestParam int employerId){
-    	return this.jobAdvertService.findByIsActiveAndEmployerCompany(employerId);
+     @GetMapping("findByIsActiveAndEmployerCompany")
+    public DataResult<List<JobAdvert>> getByIsActiveAndEmployerCompany(@RequestParam int id){
+    	return this.jobAdvertService.getByIsActiveAndEmployerCompany(id);
     }
-     * */
-    
-    
+     
     @PostMapping("add")
     public Result add(@RequestBody JobAdvert jobAdvert) {
-    	return this.add(jobAdvert);
+    	return this.jobAdvertService.add(jobAdvert);
     }
     
     @PostMapping("update")
     public Result update(@RequestBody JobAdvert jobAdvert) {
-    	return this.update(jobAdvert);
+    	return this.jobAdvertService.update(jobAdvert);
     }
     
     @DeleteMapping("delete")
-    public Result delete(@RequestBody JobAdvert jobAdvert) {
-    	return this.delete(jobAdvert);
+    public Result delete(@RequestBody int id) {
+    	return this.jobAdvertService.delete(id);
     }
+    
+    
 }
